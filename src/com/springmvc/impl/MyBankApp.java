@@ -1,15 +1,17 @@
 package com.springmvc.impl;
 
-import com.springmvc.servicemodels.Account;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.springmvc.model.SavingsAccount;
+import com.springmvc.servicemodels.Account;
 
 public class MyBankApp {
 	
+	private static final String APPLICATIONCONTEXT_XML_FILENAME = "applicationcontext.xml";
+
 	public static void main(String[] args)
 	{
-		Account acc = new SavingsAccount();
-		// acc = new CurrentAccount();
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(APPLICATIONCONTEXT_XML_FILENAME);
+		Account acc = context.getBean("mySavingsAccount", Account.class);
 		System.out.println(acc.createAccount());
 	}
 }
