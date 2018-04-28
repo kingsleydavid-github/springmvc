@@ -7,6 +7,38 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context-4.3.xsd">
     
-    <bean id="mySavingsAccount" class="com.springmvc.model.SavingsAccount"/>
+    <bean id="atmCard" class ="com.springmvc.model.ATMCard"/>
+    <bean id="mySavingsAccount" class="com.springmvc.model.SavingsAccount" autowire="byName">
+    	
+    	<!-- When autowired byName there should be only way to intialize an object either by getter or constructor -->
+    	
+    	<!-- <constructor-arg ref="atmCard" /> -->
+    </bean>
+    
+    <!-- 
+    
+    Bean scopes
+    ~~~~~~~~~~~~
+    - singleton - shared refererence of a bean (for stateless)
+    - prototype - creates a new bean instance on every container request (for statefull)
+    
+    if it is a web aware application context 	
+    
+    - request - on http request
+	- session - session
+	- global-session - global http web session   
+    
+     -->
+    
+    
+    <!-- 
+    
+    Bean life cycle
+    ~~~~~~~~~~~~~~~
+    
+    Custom 'init' and 'destroy' methods are there while a bean is initialized or destroyed a bean lifecycle 
+    
+     -->
+    
     
 </beans>

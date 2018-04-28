@@ -1,6 +1,5 @@
 package com.springmvc.servicemodels;
 
-public interface Account {
-	public String createAccount();
+public interface Card {
 	public String cardDetails();
 }
